@@ -21,6 +21,7 @@
         <td><%= election.end_at %></td>
         <td><%= election.settings %></td>
         <td><%= link_to 'Show', election %></td>
+        <td><%= link_to 'Audit', election_election_audits_path(election) %></td>
         <td><%= link_to 'Edit', edit_election_path(election) %></td>
         <td><%= link_to 'Destroy', election, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
