@@ -43,7 +43,7 @@ class VotersController < ApplicationController
   # PATCH/PUT /voters/1.json
   def update
     respond_to do |format|
-      if @voter.update(voter_params)
+      if @voter.update(voter_params.merge(updated_by: current_user.id))
         format.html { redirect_to @voter, notice: 'Voter was successfully updated.' }
         format.json { render :show, status: :ok, location: @voter }
       else

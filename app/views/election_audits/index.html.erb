@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Election Audits</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Updated Record</th>
+      <th>Updated Field</th>
+      <th>Previous value</th>
+      <th>Updated Value</th>
+      <th>Updated by</th>
+      <th>Updated at</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @audits.each do |audit| %>
+      <tr>
+        <td><%= audit.auditable_type %></td>
+        <td><%= audit.updated_field %></td>
+        <td><%= audit.before_value %></td>
+        <td><%= audit.after_value %></td>
+        <td><%= audit.user.email%></td>
+        <td><%= audit.created_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'Elections', elections_path %>
